@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leblocqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/14 09:22:51 by leblocqu          #+#    #+#             */
-/*   Updated: 2019/06/14 13:17:56 by leblocqu         ###   ########.fr       */
+/*   Created: 2019/05/08 15:28:06 by leblocqu          #+#    #+#             */
+/*   Updated: 2019/05/08 15:39:59 by leblocqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 1
-
-# include "libft/libft.h"
-# include <fcntl.h>
-# include <limits.h>
-
-int				get_next_line(const int fd, char **line);
-
-typedef struct	s_gnl
+void	ft_putnbr(int n)
 {
-	char	*str;
-	int		retour;
-	int		i;
-}				t_gnl;
-
-#endif
+	if (n == -2147483648)
+		ft_putstr("-2147483648");
+	else
+	{
+		if (n < 0)
+		{
+			ft_putchar('-');
+			n *= -1;
+		}
+		if (n >= 10)
+			ft_putnbr(n / 10);
+		ft_putchar((n % 10) + '0');
+	}
+}

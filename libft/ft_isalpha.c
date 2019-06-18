@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leblocqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/14 09:22:51 by leblocqu          #+#    #+#             */
-/*   Updated: 2019/06/14 13:17:56 by leblocqu         ###   ########.fr       */
+/*   Created: 2019/04/11 15:51:12 by leblocqu          #+#    #+#             */
+/*   Updated: 2019/04/11 15:57:06 by leblocqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 1
-
-# include "libft/libft.h"
-# include <fcntl.h>
-# include <limits.h>
-
-int				get_next_line(const int fd, char **line);
-
-typedef struct	s_gnl
+int		ft_isalpha(int a)
 {
-	char	*str;
-	int		retour;
-	int		i;
-}				t_gnl;
-
-#endif
+	if ((a >= 'A' && a <= 'Z') || (a >= 'a' && a <= 'z'))
+		return (1);
+	return (0);
+}

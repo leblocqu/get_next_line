@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leblocqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/14 09:22:51 by leblocqu          #+#    #+#             */
-/*   Updated: 2019/06/14 13:17:56 by leblocqu         ###   ########.fr       */
+/*   Created: 2019/04/22 14:38:11 by leblocqu          #+#    #+#             */
+/*   Updated: 2019/04/22 14:44:18 by leblocqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 1
-
-# include "libft/libft.h"
-# include <fcntl.h>
-# include <limits.h>
-
-int				get_next_line(const int fd, char **line);
-
-typedef struct	s_gnl
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*str;
-	int		retour;
-	int		i;
-}				t_gnl;
+	unsigned char *str;
+	unsigned char *str2;
 
-#endif
+	str = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (n)
+	{
+		if (*str != *str2)
+			return (*str - *str2);
+		str++;
+		str2++;
+		n--;
+	}
+	return (0);
+}
